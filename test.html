@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>
+
+
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field.</span></p>
+<form method="post"action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name:<input type="text" name="fname">
+  <span class="error">* </span>
+  <br><br>
+
+  E-mail:<input type="text" name="mail">
+  <span class="error">* </span>
+  <br><br>
+
+  Website:<input type="text" name="web">
+  <span class="error"></span>
+  <br><br>
+
+  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+
+  Gender: <input type="checkbox" name="gender">
+
+  <span class="error">* </span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+  <h2>Your Input:</h2><br>
+  Name:<br>
+  E-mail:<br>
+</form>
+
+<?php
+// define variables
+// use if you need these variables                  $nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name=$_REQUEST['fname'];
+  if(empty($name)){
+    echo "Name is empty";
+  }else{
+    echo "Name:";
+    echo $name;
+  }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name=$_REQUEST['mail'];
+  if(empty($name)){
+    echo "mail is empty";
+  }else{
+    echo $name;
+  }
+}
+
+
+?>
+
+</body>
+</html>
